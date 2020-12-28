@@ -1,0 +1,51 @@
+﻿@model NguyenMinhDuyThong.Models.PhoneModels
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>PhoneModels</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPhones">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdPro" />
+            <div class="form-group">
+                <label asp-for="NamePro" class="control-label"></label>
+                <input asp-for="NamePro" class="form-control" />
+                <span asp-validation-for="NamePro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" accept="image/*" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <img src="@(string.IsNullOrEmpty(Model.CoverImageUrl)?"/images/noimage.png": ("~/Image/"+Model.CoverImageUrl))" asp-append-version="true" class="img-thumbnail" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
